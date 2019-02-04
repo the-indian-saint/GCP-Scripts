@@ -1,0 +1,43 @@
+        Credentialed Accounts
+ACTIVE  ACCOUNT
+*       sin.rdd@echonetechnologies.com
+        Credentialed Accounts
+ACTIVE  ACCOUNT
+*       sin.rdd@echonetechnologies.com
+------------------------------------------------
+-------------------------------------------
+        Credentialed Accounts
+ACTIVE  ACCOUNT
+*       sin.rdd@echonetechnologies.com
+Mon Aug 27 10:47:19 IST 2018
+-------------------------------------------
+[?1000h[?1049h[?1h=[1;33r[34l[34h[?25h[23m[24m[0m[H[J[?25l[33;1H"project_creation_new.py" 107L, 5346C[1;1H[34m#!/user/bin/python[0m
+[35mimport[0m os
+[35mimport[0m sys
+[35mimport[0m subprocess [33mas[0m sp
+
+[34m#Take inputs[0m
+[36mprint[0m([31m"Please make sure your account has IAM & Billing permissions to create projects under an Organisation or a Folder."[0m)
+[36mprint[0m([31m"Click on the link https://cloud.google.com/iam/docs/overview to know more."[0m)
+project_name = [36mraw_input[0m([31m"Provide a project name "[0m)
+[36mprint[0m([31m"Provide an Organization ID below, only if you want this project created directly under that Organization(Not inside any Folder) or press Enter to provide a Folder ID..[11;1H"[0m)
+
+[34m# check if the org id is provided or not[0m
+
+
+[33mtry[0m:
+    organisation = [36mraw_input[0m([31m"Organization ID :"[0m)
+[33mexcept[0m [32mSyntaxError[0m, organisation:
+    [36mprint[0m([31m"No Organization provide"[0m)
+
+[33mif[0m [36mlen[0m(organisation) == [31m0[0m:
+    [36mprint[0m([31m"Provide a folder ID below, if you want this project created under a folder. If Organization id is provided above, then press Enter on the keyboard"[0m)
+    [33mtry[0m:[24;9Hfolder = [36mraw_input[0m([31m"Folder ID: "[0m)
+    [33mexcept[0m [32mSyntaxError[0m, folder:[26;9Hfolder = [36mNone[0m
+
+
+string1 = [31m"gcloud projects create "[0m
+string3 = [31m" --no-enable-cloud-apis"[0m + [31m" --folder "[0m + folder
+string889 = [31m" --no-enable-cloud-apis"[0m + [31m" --organization "[0m  + organisation
+string2 = [31m" --name "[0m + project_name.lower()[33;156H6,1[11CTop[6;1H[34h[?25h[?25l[33;146H[A[6;1H[33;146H  [6;1H[34h[?25h[?25l[33;146H[A[6;1H[33;146H  [6;1H[34h[?25h[?25l[33;146H^Z[6;1H[33;1H
+[?1l>[34h[?25h[?1049l[?1000lfaild to create a project

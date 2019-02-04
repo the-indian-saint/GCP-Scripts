@@ -1,0 +1,19 @@
+resources:
+        #- name: my-third-dm-vpc
+        #type: compute.v1.network
+        #properties:
+        #IPv4Range: 192.168.0.0/16
+        #routingConfig.routingMode: GLOBAL
+          #autoCreateSubnetworks: false
+- name: test-subnet
+  type: compute.v1.subnetwork
+  properties:
+          network: $(ref.private-vpc.selfLink)
+          ipCidrRange: 192.168.1.0/26
+          region: asia-east1
+- name: private-vpc
+  type: compute.v1.network
+  properties:
+          autoCreateSubnetworks: false
+          #IPv4Range: 10.0.0.0/16
+          routingConfig.routingMode: Global
